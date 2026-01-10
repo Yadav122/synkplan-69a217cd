@@ -1,6 +1,7 @@
-import { Sparkles, Brain, BookOpen, ChevronRight, Zap, Map, Target, Clock } from "lucide-react";
+import { Sparkles, Brain, BookOpen, ChevronRight, Zap, Map, Target, Clock, Phone, ListChecks, Focus, ShieldCheck } from "lucide-react";
 import careerAgentImg from "@/assets/career-agent.png";
 import testAgentImg from "@/assets/test-agent.png";
+import voiceAgentImg from "@/assets/voice-agent.png";
 
 const upcomingAgents = [
     {
@@ -33,6 +34,22 @@ const upcomingAgents = [
         ],
         gradient: "from-blue-600 via-cyan-600 to-teal-600",
         glowColor: "cyan",
+        status: "Coming Soon",
+    },
+    {
+        id: "voice-agent",
+        title: "Voice Focus Agent",
+        subtitle: "AI-Powered Distraction Manager",
+        description: "Jab bhi aap distracted ho, ye AI agent aapko call karega, puchega kyun focus toot raha hai, aur ek smart sheet banayega taaki aage se ye distractions avoid ho aur study pe focus rahe.",
+        image: voiceAgentImg,
+        features: [
+            { icon: Phone, text: "Voice Call Support" },
+            { icon: ListChecks, text: "Distraction Sheet" },
+            { icon: Focus, text: "Focus Tracker" },
+            { icon: ShieldCheck, text: "Smart Reminders" },
+        ],
+        gradient: "from-emerald-600 via-green-600 to-teal-600",
+        glowColor: "emerald",
         status: "Coming Soon",
     },
 ];

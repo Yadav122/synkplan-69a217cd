@@ -414,6 +414,16 @@
       inset 0 1px 0 hsl(0 0% 100% / 0.15);
   }
 
+  .agent-card-emerald {
+    box-shadow: 0 0 60px -20px hsl(160 80% 45% / 0.4),
+      inset 0 1px 0 hsl(0 0% 100% / 0.1);
+  }
+
+  .agent-card-emerald:hover {
+    box-shadow: 0 0 80px -20px hsl(160 80% 45% / 0.6),
+      inset 0 1px 0 hsl(0 0% 100% / 0.15);
+  }
+
   .agent-card>div:last-child {
     @apply rounded-[1.4rem] bg-card/90 backdrop-blur-xl p-6 sm:p-8;
     background: linear-gradient(180deg,
@@ -446,6 +456,10 @@
 
   .agent-glow-cyan {
     background: radial-gradient(ellipse at center, hsl(190 80% 50% / 0.2) 0%, transparent 70%);
+  }
+
+  .agent-glow-emerald {
+    background: radial-gradient(ellipse at center, hsl(160 80% 45% / 0.25) 0%, transparent 70%);
   }
 
   .agent-image {
