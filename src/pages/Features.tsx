@@ -1,6 +1,4 @@
 import Layout from "@/components/layout/Layout";
-import UpcomingFeatures from "@/components/UpcomingFeatures";
-import AppPreview from "@/components/AppPreview";
 import { Briefcase, FileText, Timer, Clock, BarChart3, CheckSquare } from "lucide-react";
 
 const features = [
@@ -52,7 +50,7 @@ const Features = () => {
             </section>
 
             {/* Features Grid */}
-            <section className="py-12 sm:py-16 bg-background relative">
+            <section className="py-12 sm:py-20 bg-background relative">
                 <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                         {features.map((feature, index) => (
@@ -75,12 +73,6 @@ const Features = () => {
                     </div>
                 </div>
             </section>
-
-            {/* App Preview Section */}
-            <AppPreview />
-
-            {/* Upcoming AI Features Section */}
-            <UpcomingFeatures />
         </Layout>
     );
 };

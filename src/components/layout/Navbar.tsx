@@ -10,6 +10,8 @@ const Navbar = () => {
   const navLinks = [
     { name: "Home", path: "/" },
     { name: "Features", path: "/features" },
+    { name: "Experience", path: "/experience" },
+    { name: "Upcoming AI", path: "/upcoming-ai" },
     { name: "Terms & Conditions", path: "/terms" },
     { name: "Privacy Policy", path: "/privacy" },
   ];
@@ -65,8 +67,8 @@ const Navbar = () => {
                   to={link.path}
                   onClick={() => setIsOpen(false)}
                   className={`py-3 px-4 rounded-xl transition-colors ${isActive(link.path)
-                      ? "bg-primary/10 text-primary font-semibold"
-                      : "text-muted-foreground hover:bg-accent hover:text-foreground"
+                    ? "bg-primary/10 text-primary font-semibold"
+                    : "text-muted-foreground hover:bg-accent hover:text-foreground"
                     }`}
                 >
                   {link.name}
