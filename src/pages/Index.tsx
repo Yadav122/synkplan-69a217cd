@@ -1,5 +1,6 @@
 import Layout from "@/components/layout/Layout";
 import UpcomingFeatures from "@/components/UpcomingFeatures";
+import AppPreview from "@/components/AppPreview";
 import { Briefcase, FileText, Timer, Clock, BarChart3, CheckSquare } from "lucide-react";
 import synkplanLogo from "@/assets/synkplan-logo.png";
 
@@ -115,6 +116,9 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* App Preview Section */}
+      <AppPreview />
 
       {/* Upcoming AI Features Section */}
       <UpcomingFeatures />

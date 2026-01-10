@@ -522,6 +522,85 @@
     @apply -translate-y-1;
     box-shadow: 0 8px 30px -4px hsl(267 80% 50% / 0.5);
   }
+
+  /* ===== APP PREVIEW SECTION ===== */
+  .app-preview-section {
+    background: linear-gradient(180deg,
+        hsl(var(--background)) 0%,
+        hsl(267 50% 8%) 50%,
+        hsl(var(--background)) 100%);
+  }
+
+  .phone-mockup-container {
+    @apply relative flex flex-col items-center;
+  }
+
+  .phone-mockup {
+    @apply relative;
+  }
+
+  .phone-frame {
+    @apply relative w-[280px] sm:w-[300px] h-[560px] sm:h-[600px] bg-gradient-to-b from-gray-800 to-gray-900 rounded-[3rem] p-2 shadow-2xl;
+    border: 3px solid hsl(0 0% 25%);
+  }
+
+  .phone-notch {
+    @apply absolute top-3 left-1/2 -translate-x-1/2 w-24 h-6 bg-black rounded-full z-20;
+  }
+
+  .phone-screen {
+    @apply w-full h-full bg-black rounded-[2.5rem] overflow-hidden;
+  }
+
+  .phone-glow {
+    @apply absolute -inset-4 -z-10 rounded-[4rem] opacity-50;
+    background: radial-gradient(ellipse at center, hsl(267 80% 50% / 0.3) 0%, transparent 70%);
+    filter: blur(30px);
+  }
+
+  .preview-nav-btn {
+    @apply w-12 h-12 rounded-full bg-card/80 backdrop-blur-xl border border-border flex items-center justify-center text-foreground transition-all duration-300;
+  }
+
+  .preview-nav-btn:hover {
+    @apply bg-primary text-primary-foreground border-primary scale-110;
+  }
+
+  .preview-info-panel {
+    @apply hidden lg:block w-80 xl:w-96;
+  }
+
+  .preview-info-content {
+    @apply p-6 rounded-2xl bg-card/50 backdrop-blur-xl border border-border;
+  }
+
+  .preview-info-badge {
+    @apply inline-block px-3 py-1 rounded-full bg-primary/20 text-primary text-sm font-semibold mb-4;
+  }
+
+  .preview-info-title {
+    @apply text-2xl font-bold text-foreground mb-3;
+  }
+
+  .preview-info-description {
+    @apply text-muted-foreground leading-relaxed mb-6;
+  }
+
+  .preview-thumbnails {
+    @apply grid grid-cols-5 gap-2;
+  }
+
+  .preview-thumbnail {
+    @apply aspect-[9/16] rounded-lg overflow-hidden border-2 border-transparent transition-all duration-300 opacity-60;
+  }
+
+  .preview-thumbnail:hover {
+    @apply opacity-80;
+  }
+
+  .preview-thumbnail.active {
+    @apply border-primary opacity-100 scale-105;
+  }
 }
 
 @layer utilities {

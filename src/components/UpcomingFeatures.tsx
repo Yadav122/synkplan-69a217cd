@@ -8,7 +8,7 @@ const upcomingAgents = [
         id: "career-agent",
         title: "Career Prediction Agent",
         subtitle: "AI-Powered Career Guidance",
-        description: "12 intelligent questions se aapki personality, interests aur skills analyze karke 4 best career options suggest karega with detailed topic-wise roadmap.",
+        description: "Answer 12 intelligent questions and let our AI analyze your personality, interests, and skills to suggest 4 best career options with detailed topic-wise learning roadmaps.",
         image: careerAgentImg,
         features: [
             { icon: Brain, text: "12 Smart Questions" },
@@ -24,7 +24,7 @@ const upcomingAgents = [
         id: "test-agent",
         title: "Test Series Agent",
         subtitle: "AI-Powered Practice Tests",
-        description: "Personalized test series jo aapke weak areas identify karke targeted practice questions provide karega with real-time performance analytics.",
+        description: "Get personalized test series that identify your weak areas and provide targeted practice questions with real-time performance analytics and improvement tracking.",
         image: testAgentImg,
         features: [
             { icon: BookOpen, text: "Smart Question Bank" },
@@ -40,7 +40,7 @@ const upcomingAgents = [
         id: "voice-agent",
         title: "Voice Focus Agent",
         subtitle: "AI-Powered Distraction Manager",
-        description: "Jab bhi aap distracted ho, ye AI agent aapko call karega, puchega kyun focus toot raha hai, aur ek smart sheet banayega taaki aage se ye distractions avoid ho aur study pe focus rahe.",
+        description: "When you lose focus, this AI agent will call you, ask what's distracting you, and create a smart sheet to help you avoid those distractions and stay focused on your studies.",
         image: voiceAgentImg,
         features: [
             { icon: Phone, text: "Voice Call Support" },
@@ -53,6 +53,7 @@ const upcomingAgents = [
         status: "Coming Soon",
     },
 ];
+
 
 const UpcomingFeatures = () => {
     return (
