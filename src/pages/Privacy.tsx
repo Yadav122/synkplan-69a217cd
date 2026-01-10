@@ -1,6 +1,7 @@
 import Layout from "@/components/layout/Layout";
 import { Shield, Mail, Lock, Eye, Database, Bell, FileText, UserCheck, Users, RefreshCw, ChevronRight } from "lucide-react";
 import { useState, useEffect } from "react";
+import synkplanLogo from "@/assets/synkplan-logo.png";
 
 const sections = [
   { id: "intro", title: "Introduction", icon: Shield },
@@ -66,11 +67,11 @@ const Privacy = () => {
               <span className="text-sm font-medium text-primary">Legal Document</span>
             </div>
 
-            {/* Icon */}
+            {/* Logo */}
             <div className="relative inline-flex items-center justify-center mb-8 animate-fade-in-delay-1">
-              <div className="absolute inset-0 w-24 h-24 bg-gradient-to-br from-primary/30 to-primary/10 rounded-3xl blur-xl" />
-              <div className="relative w-20 h-20 rounded-2xl bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center shadow-2xl shadow-primary/30">
-                <Shield className="w-10 h-10 text-white" />
+              <div className="absolute inset-0 w-28 h-28 bg-gradient-to-br from-primary/30 to-primary/10 rounded-3xl blur-xl" />
+              <div className="relative w-24 h-24 rounded-2xl bg-background shadow-2xl shadow-primary/30 p-2 border border-border/50">
+                <img src={synkplanLogo} alt="SynkPlan Logo" className="w-full h-full object-contain" />
               </div>
             </div>
 
@@ -117,8 +118,8 @@ const Privacy = () => {
                         key={section.id}
                         onClick={() => scrollToSection(section.id)}
                         className={`w-full flex items-center gap-3 px-4 py-2.5 rounded-xl text-left text-sm font-medium transition-all duration-200 group ${isActive
-                            ? "bg-primary text-primary-foreground shadow-lg shadow-primary/25"
-                            : "text-muted-foreground hover:bg-accent hover:text-foreground"
+                          ? "bg-primary text-primary-foreground shadow-lg shadow-primary/25"
+                          : "text-muted-foreground hover:bg-accent hover:text-foreground"
                           }`}
                       >
                         <Icon className={`w-4 h-4 flex-shrink-0 ${isActive ? "" : "group-hover:text-primary"}`} />
