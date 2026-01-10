@@ -9,6 +9,7 @@ import Experience from "./pages/Experience";
 import UpcomingAI from "./pages/UpcomingAI";
 import Terms from "./pages/Terms";
 import Privacy from "./pages/Privacy";
+import About from "./pages/About";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,6 +25,7 @@ const App = () => (
           <Route path="/features" element={<Features />} />
           <Route path="/experience" element={<Experience />} />
           <Route path="/upcoming-ai" element={<UpcomingAI />} />
+          <Route path="/about" element={<About />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="*" element={<NotFound />} />

@@ -12,6 +12,7 @@ const Navbar = () => {
     { name: "Features", path: "/features" },
     { name: "Experience", path: "/experience" },
     { name: "Upcoming AI", path: "/upcoming-ai" },
+    { name: "About Us", path: "/about" },
     { name: "Terms & Conditions", path: "/terms" },
     { name: "Privacy Policy", path: "/privacy" },
   ];

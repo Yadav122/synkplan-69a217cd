@@ -1987,3 +1987,73 @@ body {
     padding-bottom: max(1rem, env(safe-area-inset-bottom));
   }
 }
+
+/* ===== ABOUT PAGE STYLES ===== */
+
+.floating-3d-container {
+  position: relative;
+  z-index: 1;
+}
+
+.floating-3d-image {
+  animation: floatAndRotate 6s ease-in-out infinite;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+@keyframes floatAndRotate {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  33% {
+    transform: translateY(-20px) rotate(2deg);
+  }
+
+  66% {
+    transform: translateY(10px) rotate(-2deg);
+  }
+}
+
+.mission-card {
+  @apply p-8 rounded-3xl bg-white border border-border/50 shadow-xl transition-all duration-300;
+  transform-style: preserve-3d;
+}
+
+.mission-card:hover {
+  @apply -translate-y-2 border-primary/20 shadow-primary/10;
+}
+
+.mission-icon {
+  @apply w-12 h-12 rounded-2xl flex items-center justify-center mb-6 transition-transform duration-300;
+}
+
+.mission-card:hover .mission-icon {
+  @apply scale-110 rotate-3;
+}
+
+.team-card {
+  @apply p-6 rounded-3xl bg-white border border-border/50 flex items-center gap-6 shadow-lg transition-transform hover:-translate-y-1;
+}
+
+.team-avatar {
+  @apply w-16 h-16 rounded-2xl flex items-center justify-center shrink-0 shadow-md;
+}
+
+.value-card {
+  @apply p-6 rounded-2xl bg-white border border-border/50 text-center shadow-md animate-fade-in;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.value-card:hover {
+  @apply -translate-y-1 shadow-lg border-primary/10;
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, hsl(var(--primary)) 0%, #8b5cf6 50%, #d946ef 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
