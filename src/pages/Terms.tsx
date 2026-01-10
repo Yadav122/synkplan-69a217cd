@@ -48,11 +48,10 @@ const Terms = () => {
     <Layout>
       {/* Hero Section */}
       <div className="relative overflow-hidden bg-gradient-to-br from-primary/5 via-accent to-background">
-        {/* Animated Background Elements */}
+        {/* Light Background Gradient */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -top-40 -right-40 w-80 h-80 bg-primary/10 rounded-full blur-3xl animate-pulse" />
-          <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-accent rounded-full blur-3xl" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-radial from-primary/5 to-transparent rounded-full" />
+          <div className="absolute -top-40 -right-40 w-80 h-80 bg-violet-100/50 rounded-full blur-3xl" />
+          <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-cyan-50/50 rounded-full blur-3xl" />
         </div>
 
         {/* Grid Pattern */}
@@ -68,8 +67,7 @@ const Terms = () => {
 
             {/* Logo */}
             <div className="relative inline-flex items-center justify-center mb-8 animate-fade-in-delay-1">
-              <div className="absolute inset-0 w-28 h-28 bg-gradient-to-br from-primary/30 to-primary/10 rounded-3xl blur-xl" />
-              <div className="relative w-24 h-24 rounded-2xl bg-background shadow-2xl shadow-primary/30 p-2 border border-border/50">
+              <div className="relative w-24 h-24 rounded-2xl bg-white p-2 border border-border/30" style={{ boxShadow: '0 4px 20px rgba(139, 92, 246, 0.1)' }}>
                 <img src={synkplanLogo} alt="SynkPlan Logo" className="w-full h-full object-contain" />
               </div>
             </div>
