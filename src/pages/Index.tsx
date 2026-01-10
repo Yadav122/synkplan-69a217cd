@@ -95,7 +95,7 @@ const Index = () => {
 
             {/* Title */}
             <h1
-              className="text-5xl sm:text-6xl lg:text-7xl font-extrabold mb-4"
+              className="text-3xl min-[380px]:text-4xl sm:text-6xl lg:text-7xl font-extrabold mb-4 tracking-tighter leading-tight"
               style={getParallaxStyle(5)}
             >
               <span className="text-gradient">SynkPlan</span>

@@ -1,6 +1,9 @@
 import Layout from "@/components/layout/Layout";
 import { FileText, Mail, Smartphone, FolderOpen, Shield, Scale, Copyright, RefreshCw, Gavel, ChevronRight } from "lucide-react";
 import { useState, useEffect } from "react";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import { Button } from "@/components/ui/button";
+import { List } from "lucide-react";
 import synkplanLogo from "@/assets/synkplan-logo.png";
 
 const sections = [
@@ -18,6 +21,7 @@ const sections = [
 
 const Terms = () => {
   const [activeSection, setActiveSection] = useState("intro");
+  const [isSheetOpen, setIsSheetOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,6 +45,7 @@ const Terms = () => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth", block: "start" });
+      setIsSheetOpen(false);
     }
   };
 
@@ -406,6 +411,49 @@ const Terms = () => {
             </section>
           </main>
         </div>
+      </div>
+
+      {/* Mobile Floating TOC Button */}
+      <div className="lg:hidden fixed bottom-6 right-6 z-50">
+        <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
+          <SheetTrigger asChild>
+            <Button size="icon" className="w-14 h-14 rounded-full shadow-2xl bg-primary hover:bg-primary/90 text-white">
+              <List className="w-6 h-6" />
+            </Button>
+          </SheetTrigger>
+          <SheetContent side="bottom" className="rounded-t-[32px] h-[80vh] p-0 overflow-hidden border-t-0 bg-background/95 backdrop-blur-xl">
+            <div className="absolute top-2 left-1/2 -translate-x-1/2 w-12 h-1.5 bg-muted rounded-full" />
+            <div className="flex flex-col h-full bg-gradient-to-b from-primary/5 to-transparent">
+              <SheetHeader className="p-8 pb-4">
+                <SheetTitle className="text-2xl font-bold text-gradient">Table of Contents</SheetTitle>
+              </SheetHeader>
+              <div className="flex-1 overflow-y-auto px-6 pb-12">
+                <nav className="grid grid-cols-1 gap-2">
+                  {sections.map((section) => {
+                    const Icon = section.icon;
+                    const isActive = activeSection === section.id;
+                    return (
+                      <button
+                        key={section.id}
+                        onClick={() => scrollToSection(section.id)}
+                        className={`flex items-center gap-4 p-4 rounded-2xl text-left transition-all duration-300 ${isActive
+                          ? "bg-primary text-primary-foreground shadow-lg shadow-primary/20 scale-[1.02]"
+                          : "bg-card/50 border border-border/50 text-muted-foreground hover:bg-accent/50"
+                          }`}
+                      >
+                        <div className={`p-2 rounded-lg ${isActive ? "bg-white/20" : "bg-primary/10 text-primary"}`}>
+                          <Icon className="w-5 h-5" />
+                        </div>
+                        <span className="font-semibold text-lg">{section.title}</span>
+                        {isActive && <ChevronRight className="w-5 h-5 ml-auto opacity-50" />}
+                      </button>
+                    );
+                  })}
+                </nav>
+              </div>
+            </div>
+          </SheetContent>
+        </Sheet>
       </div>
     </Layout>
   );

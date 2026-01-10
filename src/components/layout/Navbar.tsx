@@ -24,15 +24,15 @@ const Navbar = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2.5 group">
-            <div className="w-9 h-9 rounded-xl overflow-hidden shadow-md group-hover:shadow-lg transition-shadow">
+          <Link to="/" className="flex items-center gap-2 group shrink-0">
+            <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl overflow-hidden shadow-md group-hover:shadow-lg transition-shadow">
               <img
                 src={synkplanLogo}
                 alt="SynkPlan Logo"
                 className="w-full h-full object-contain"
               />
             </div>
-            <span className="text-xl font-bold text-gradient">SynkPlan</span>
+            <span className="text-lg sm:text-xl font-bold text-gradient whitespace-nowrap">SynkPlan</span>
           </Link>
 
           {/* Desktop Navigation */}

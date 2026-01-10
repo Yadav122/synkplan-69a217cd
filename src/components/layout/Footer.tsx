@@ -11,13 +11,13 @@ const Footer = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2.5 group">
             <div className="w-10 h-10 rounded-xl overflow-hidden shadow-md group-hover:shadow-lg transition-shadow">
-              <img 
-                src={synkplanLogo} 
-                alt="SynkPlan Logo" 
+              <img
+                src={synkplanLogo}
+                alt="SynkPlan Logo"
                 className="w-full h-full object-contain"
               />
             </div>
-            <span className="text-xl font-bold text-gradient">SynkPlan</span>
+            <span className="text-lg sm:text-xl font-bold text-gradient whitespace-nowrap">SynkPlan</span>
           </Link>
 
           {/* Navigation Links */}

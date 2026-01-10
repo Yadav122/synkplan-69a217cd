@@ -1,12 +1,51 @@
 import Layout from "@/components/layout/Layout";
-import { Target, Users, Rocket, Heart, GraduationCap, BookOpen, Brain, Lightbulb } from "lucide-react";
+import { Target, Users, Rocket, Heart, GraduationCap, BookOpen, Brain, Lightbulb, ChevronRight, List } from "lucide-react";
 import education3d from "@/assets/education-3d.png";
+import { useState, useEffect } from "react";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import { Button } from "@/components/ui/button";
+
+const sections = [
+    { id: "hero", title: "About SynkPlan", icon: Users },
+    { id: "mission", title: "Our Mission", icon: Target },
+    { id: "team", title: "Our Team", icon: Heart },
+    { id: "values", title: "Core Values", icon: Lightbulb },
+];
 
 const About = () => {
+    const [activeSection, setActiveSection] = useState("hero");
+    const [isSheetOpen, setIsSheetOpen] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const sectionElements = sections.map(s => document.getElementById(s.id));
+            const scrollPosition = window.scrollY + 200;
+
+            for (let i = sectionElements.length - 1; i >= 0; i--) {
+                const element = sectionElements[i];
+                if (element && element.offsetTop <= scrollPosition) {
+                    setActiveSection(sections[i].id);
+                    break;
+                }
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
+    const scrollToSection = (id: string) => {
+        const element = document.getElementById(id);
+        if (element) {
+            element.scrollIntoView({ behavior: "smooth", block: "start" });
+            setIsSheetOpen(false);
+        }
+    };
+
     return (
         <Layout>
             {/* Hero Section */}
-            <section className="relative overflow-hidden py-16 sm:py-24">
+            <section id="hero" className="relative overflow-hidden py-16 sm:py-24 scroll-mt-20">
                 {/* Light Background */}
                 <div className="absolute inset-0 bg-gradient-to-br from-violet-50 via-white to-cyan-50" />
 
@@ -70,7 +109,7 @@ const About = () => {
             </section>
 
             {/* Mission Section */}
-            <section className="py-16 sm:py-24 bg-white">
+            <section id="mission" className="py-16 sm:py-24 bg-white scroll-mt-20">
                 <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-16">
                         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
@@ -125,7 +164,7 @@ const About = () => {
             </section>
 
             {/* Team Section */}
-            <section className="py-16 sm:py-24 bg-gradient-to-br from-violet-50 via-white to-cyan-50">
+            <section id="team" className="py-16 sm:py-24 bg-gradient-to-br from-violet-50 via-white to-cyan-50 scroll-mt-20">
                 <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-16">
                         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
@@ -172,7 +211,7 @@ const About = () => {
             </section>
 
             {/* Values Section */}
-            <section className="py-16 sm:py-24 bg-white">
+            <section id="values" className="py-16 sm:py-24 bg-white scroll-mt-20">
                 <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-16">
                         <h2 className="text-3xl sm:text-4xl font-bold mb-6">
@@ -216,6 +255,48 @@ const About = () => {
                     </div>
                 </div>
             </section>
+            {/* Mobile Floating TOC Button */}
+            <div className="fixed bottom-6 right-6 z-50">
+                <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
+                    <SheetTrigger asChild>
+                        <Button size="icon" className="w-14 h-14 rounded-full shadow-2xl bg-primary hover:bg-primary/90 text-white">
+                            <List className="w-6 h-6" />
+                        </Button>
+                    </SheetTrigger>
+                    <SheetContent side="bottom" className="rounded-t-[32px] h-[60vh] p-0 overflow-hidden border-t-0 bg-background/95 backdrop-blur-xl">
+                        <div className="absolute top-2 left-1/2 -translate-x-1/2 w-12 h-1.5 bg-muted rounded-full" />
+                        <div className="flex flex-col h-full bg-gradient-to-b from-primary/5 to-transparent">
+                            <SheetHeader className="p-8 pb-4">
+                                <SheetTitle className="text-2xl font-bold text-gradient">About SynkPlan</SheetTitle>
+                            </SheetHeader>
+                            <div className="flex-1 overflow-y-auto px-6 pb-12">
+                                <nav className="grid grid-cols-1 gap-2">
+                                    {sections.map((section) => {
+                                        const Icon = section.icon;
+                                        const isActive = activeSection === section.id;
+                                        return (
+                                            <button
+                                                key={section.id}
+                                                onClick={() => scrollToSection(section.id)}
+                                                className={`flex items-center gap-4 p-4 rounded-2xl text-left transition-all duration-300 ${isActive
+                                                    ? "bg-primary text-primary-foreground shadow-lg shadow-primary/20 scale-[1.02]"
+                                                    : "bg-card/50 border border-border/50 text-muted-foreground hover:bg-accent/50"
+                                                    }`}
+                                            >
+                                                <div className={`p-2 rounded-lg ${isActive ? "bg-white/20" : "bg-primary/10 text-primary"}`}>
+                                                    <Icon className="w-5 h-5" />
+                                                </div>
+                                                <span className="font-semibold text-lg">{section.title}</span>
+                                                {isActive && <ChevronRight className="w-5 h-5 ml-auto opacity-50" />}
+                                            </button>
+                                        );
+                                    })}
+                                </nav>
+                            </div>
+                        </div>
+                    </SheetContent>
+                </Sheet>
+            </div>
         </Layout>
     );
 };
