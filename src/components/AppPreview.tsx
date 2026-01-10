@@ -100,6 +100,8 @@ const AppPreview = () => {
                                         src={appScreenshots[activeIndex].image}
                                         alt={appScreenshots[activeIndex].title}
                                         className="w-full h-full object-cover transition-opacity duration-500"
+                                        loading="eager"
+                                        {...({ fetchPriority: activeIndex === 0 ? "high" : "auto" } as any)}
                                     />
                                 </div>
                             </div>
@@ -123,8 +125,8 @@ const AppPreview = () => {
                                         key={idx}
                                         onClick={() => setActiveIndex(idx)}
                                         className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${idx === activeIndex
-                                                ? "bg-primary w-8"
-                                                : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
+                                            ? "bg-primary w-8"
+                                            : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
                                             }`}
                                         aria-label={`Go to screenshot ${idx + 1}`}
                                     />
@@ -166,6 +168,8 @@ const AppPreview = () => {
                                             src={screenshot.image}
                                             alt={screenshot.title}
                                             className="w-full h-full object-cover"
+                                            loading="lazy"
+                                            decoding="async"
                                         />
                                     </button>
                                 ))}
@@ -190,8 +194,8 @@ const AppPreview = () => {
                             key={idx}
                             onClick={() => setActiveIndex(idx)}
                             className={`w-3 h-3 rounded-full transition-all duration-300 ${idx === activeIndex
-                                    ? "bg-primary w-10"
-                                    : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
+                                ? "bg-primary w-10"
+                                : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
                                 }`}
                             aria-label={`Go to screenshot ${idx + 1}`}
                         />

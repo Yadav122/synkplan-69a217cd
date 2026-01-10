@@ -153,6 +153,12 @@
   }
 
   /* ===== 3D INTERACTIVE HOME PAGE ===== */
+  .app-preview-section,
+  .upcoming-section {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 500px;
+  }
+
   .hero-section-3d {
     perspective: 1000px;
     background: radial-gradient(ellipse at center top, hsl(267 50% 15%) 0%, hsl(var(--background)) 60%);

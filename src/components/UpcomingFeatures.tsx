@@ -123,6 +123,8 @@ const UpcomingFeatures = () => {
                                     src={agent.image}
                                     alt={agent.title}
                                     className="agent-image"
+                                    loading="lazy"
+                                    decoding="async"
                                 />
                             </div>
 
