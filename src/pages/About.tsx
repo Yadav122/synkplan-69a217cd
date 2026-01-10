@@ -186,8 +186,8 @@ const About = () => {
                                 <span className="text-2xl font-bold text-white">K</span>
                             </div>
                             <div>
-                                <h3 className="text-xl font-bold">Karan Dahiya</h3>
-                                <p className="text-primary font-medium">Co-Founder & Developer</p>
+                                <h3 className="text-xl font-bold">Khushbu Dahiya</h3>
+                                <p className="text-primary font-medium">Co-Founder </p>
                                 <p className="text-sm text-muted-foreground mt-2">
                                     Passionate about creating products that make student life easier.
                                 </p>
@@ -200,7 +200,7 @@ const About = () => {
                             </div>
                             <div>
                                 <h3 className="text-xl font-bold">Harsh Kumar</h3>
-                                <p className="text-cyan-600 font-medium">Co-Founder & Designer</p>
+                                <p className="text-cyan-600 font-medium">Co-Founder </p>
                                 <p className="text-sm text-muted-foreground mt-2">
                                     Focused on creating beautiful and intuitive user experiences.
                                 </p>
