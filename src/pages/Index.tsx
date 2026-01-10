@@ -1,47 +1,13 @@
 import Layout from "@/components/layout/Layout";
-import UpcomingFeatures from "@/components/UpcomingFeatures";
-import AppPreview from "@/components/AppPreview";
-import { Briefcase, FileText, Timer, Clock, BarChart3, CheckSquare } from "lucide-react";
+import { Link } from "react-router-dom";
+import { ArrowRight, Sparkles } from "lucide-react";
 import synkplanLogo from "@/assets/synkplan-logo.png";
-
-const features = [
-  {
-    icon: Briefcase,
-    title: "Latest Jobs",
-    description: "Get the latest job updates and opportunities",
-  },
-  {
-    icon: FileText,
-    title: "Document Conversion",
-    description: "Convert documents easily at no cost",
-  },
-  {
-    icon: Timer,
-    title: "Focus Mode",
-    description: "Distraction-free timer with DND integration for deep work",
-  },
-  {
-    icon: Clock,
-    title: "Pomodoro Timer",
-    description: "Customizable work and break intervals for balanced study sessions",
-  },
-  {
-    icon: BarChart3,
-    title: "Subject Analytics",
-    description: "Track daily progress and hours spent on each subject",
-  },
-  {
-    icon: CheckSquare,
-    title: "Task Management",
-    description: "Organize todos and events to stay on schedule",
-  },
-];
 
 const Index = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="hero-section relative overflow-hidden">
+      <section className="hero-section relative overflow-hidden min-h-[calc(100vh-80px)] flex items-center">
         {/* Background Pattern */}
         <div className="absolute inset-0 bg-grid-pattern opacity-50" />
 
@@ -49,7 +15,7 @@ const Index = () => {
         <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl" />
         <div className="absolute bottom-10 right-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
 
-        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28 lg:py-32">
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28 lg:py-32 w-full">
           <div className="text-center">
             {/* App Logo */}
             <div className="animate-fade-in animate-float">
@@ -72,8 +38,17 @@ const Index = () => {
               SynkPlan is a productivity and study-focused app that helps users manage tasks, focus sessions, document conversion, and track academic progress.
             </p>
 
-            {/* CTA Hint */}
-            <div className="mt-10 animate-fade-in-delay-3">
+            {/* CTA Buttons */}
+            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-delay-3">
+              <Link
+                to="/features"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-primary to-violet-600 text-primary-foreground font-semibold shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+              >
+                <Sparkles className="w-5 h-5" />
+                Explore Features
+                <ArrowRight className="w-5 h-5" />
+              </Link>
+
               <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-accent text-accent-foreground text-sm font-medium">
                 <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
                 Coming soon to Android
@@ -82,46 +57,6 @@ const Index = () => {
           </div>
         </div>
       </section>
-
-      {/* Features Section */}
-      <section className="py-20 sm:py-24 bg-background relative">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-foreground">
-              Powerful Features
-            </h2>
-            <p className="text-muted-foreground text-lg max-w-xl mx-auto">
-              Everything you need to boost your productivity and ace your studies
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {features.map((feature, index) => (
-              <div
-                key={index}
-                className="feature-card group"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <div className="icon-box mb-5">
-                  <feature.icon className="w-7 h-7 text-primary-foreground" />
-                </div>
-                <h3 className="text-xl font-semibold mb-2 text-foreground group-hover:text-primary transition-colors">
-                  {feature.title}
-                </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  {feature.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* App Preview Section */}
-      <AppPreview />
-
-      {/* Upcoming AI Features Section */}
-      <UpcomingFeatures />
     </Layout>
   );
 };

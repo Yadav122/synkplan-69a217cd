@@ -540,16 +540,16 @@
   }
 
   .phone-frame {
-    @apply relative w-[280px] sm:w-[300px] h-[560px] sm:h-[600px] bg-gradient-to-b from-gray-800 to-gray-900 rounded-[3rem] p-2 shadow-2xl;
-    border: 3px solid hsl(0 0% 25%);
+    @apply relative w-[220px] sm:w-[240px] h-[440px] sm:h-[480px] bg-gradient-to-b from-gray-800 to-gray-900 rounded-[2.5rem] p-1.5 shadow-2xl;
+    border: 2px solid hsl(0 0% 25%);
   }
 
   .phone-notch {
-    @apply absolute top-3 left-1/2 -translate-x-1/2 w-24 h-6 bg-black rounded-full z-20;
+    @apply absolute top-2 left-1/2 -translate-x-1/2 w-20 h-5 bg-black rounded-full z-20;
   }
 
   .phone-screen {
-    @apply w-full h-full bg-black rounded-[2.5rem] overflow-hidden;
+    @apply w-full h-full bg-black rounded-[2rem] overflow-hidden;
   }
 
   .phone-glow {

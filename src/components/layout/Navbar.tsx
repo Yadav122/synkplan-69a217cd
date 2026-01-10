@@ -9,6 +9,7 @@ const Navbar = () => {
 
   const navLinks = [
     { name: "Home", path: "/" },
+    { name: "Features", path: "/features" },
     { name: "Terms & Conditions", path: "/terms" },
     { name: "Privacy Policy", path: "/privacy" },
   ];
@@ -22,9 +23,9 @@ const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2.5 group">
             <div className="w-9 h-9 rounded-xl overflow-hidden shadow-md group-hover:shadow-lg transition-shadow">
-              <img 
-                src={synkplanLogo} 
-                alt="SynkPlan Logo" 
+              <img
+                src={synkplanLogo}
+                alt="SynkPlan Logo"
                 className="w-full h-full object-contain"
               />
             </div>
@@ -63,11 +64,10 @@ const Navbar = () => {
                   key={link.path}
                   to={link.path}
                   onClick={() => setIsOpen(false)}
-                  className={`py-3 px-4 rounded-xl transition-colors ${
-                    isActive(link.path)
+                  className={`py-3 px-4 rounded-xl transition-colors ${isActive(link.path)
                       ? "bg-primary/10 text-primary font-semibold"
                       : "text-muted-foreground hover:bg-accent hover:text-foreground"
-                  }`}
+                    }`}
                 >
                   {link.name}
                 </Link>
