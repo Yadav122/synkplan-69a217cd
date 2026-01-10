@@ -1,129 +1,152 @@
+import { useState, useEffect, useRef } from "react";
 import Layout from "@/components/layout/Layout";
 import { Link } from "react-router-dom";
 import { ArrowRight, Sparkles, Calendar, CheckSquare, Timer, BarChart3, Briefcase, FileText } from "lucide-react";
 import synkplanLogo from "@/assets/synkplan-logo.png";
 
 const floatingIcons = [
-  { icon: Calendar, delay: "0s", position: "top-[15%] left-[10%]", size: "w-12 h-12", color: "text-violet-400" },
-  { icon: CheckSquare, delay: "0.5s", position: "top-[20%] right-[15%]", size: "w-10 h-10", color: "text-cyan-400" },
-  { icon: Timer, delay: "1s", position: "bottom-[30%] left-[8%]", size: "w-14 h-14", color: "text-emerald-400" },
-  { icon: BarChart3, delay: "1.5s", position: "bottom-[25%] right-[10%]", size: "w-11 h-11", color: "text-orange-400" },
-  { icon: Briefcase, delay: "2s", position: "top-[40%] left-[5%]", size: "w-10 h-10", color: "text-pink-400" },
-  { icon: FileText, delay: "2.5s", position: "top-[35%] right-[8%]", size: "w-12 h-12", color: "text-blue-400" },
+  { icon: Calendar, position: "top-[18%] left-[12%]", color: "#8B5CF6", delay: 0 },
+  { icon: CheckSquare, position: "top-[15%] right-[15%]", color: "#06B6D4", delay: 0.5 },
+  { icon: Timer, position: "bottom-[25%] left-[10%]", color: "#10B981", delay: 1 },
+  { icon: BarChart3, position: "bottom-[20%] right-[12%]", color: "#F59E0B", delay: 1.5 },
+  { icon: Briefcase, position: "top-[45%] left-[6%]", color: "#EC4899", delay: 2 },
+  { icon: FileText, position: "top-[40%] right-[8%]", color: "#3B82F6", delay: 2.5 },
 ];
 
 const Index = () => {
+  const [mousePosition, setMousePosition] = useState({ x: 0.5, y: 0.5 });
+  const heroRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (heroRef.current) {
+        const rect = heroRef.current.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width;
+        const y = (e.clientY - rect.top) / rect.height;
+        setMousePosition({ x, y });
+      }
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
+  const getParallaxStyle = (intensity: number) => ({
+    transform: `translate(${(mousePosition.x - 0.5) * intensity}px, ${(mousePosition.y - 0.5) * intensity}px)`,
+  });
+
   return (
     <Layout>
-      {/* Hero Section with 3D Interactive Elements */}
-      <section className="hero-section-3d relative overflow-hidden min-h-[calc(100vh-80px)] flex items-center">
-        {/* Animated Background Gradient */}
-        <div className="absolute inset-0 bg-gradient-radial from-primary/20 via-background to-background" />
+      <section
+        ref={heroRef}
+        className="clean-hero relative overflow-hidden min-h-[calc(100vh-64px)] flex items-center"
+      >
+        {/* Light Gradient Background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-violet-50 via-white to-cyan-50" />
 
-        {/* Grid Pattern */}
-        <div className="absolute inset-0 bg-grid-pattern opacity-30" />
-
-        {/* 3D Floating Orbs */}
-        <div className="floating-orb orb-1" />
-        <div className="floating-orb orb-2" />
-        <div className="floating-orb orb-3" />
+        {/* Soft Gradient Orbs */}
+        <div
+          className="absolute w-[600px] h-[600px] rounded-full top-[-200px] left-[-200px] opacity-40"
+          style={{
+            background: "radial-gradient(circle, hsl(267 80% 85%) 0%, transparent 70%)",
+            ...getParallaxStyle(-20),
+          }}
+        />
+        <div
+          className="absolute w-[500px] h-[500px] rounded-full bottom-[-150px] right-[-150px] opacity-30"
+          style={{
+            background: "radial-gradient(circle, hsl(200 80% 85%) 0%, transparent 70%)",
+            ...getParallaxStyle(-15),
+          }}
+        />
 
         {/* Floating Icons */}
-        {floatingIcons.map((item, index) => (
+        {floatingIcons.map((item, idx) => (
           <div
-            key={index}
-            className={`floating-icon absolute ${item.position} ${item.size} ${item.color}`}
-            style={{ animationDelay: item.delay }}
+            key={idx}
+            className={`absolute ${item.position} floating-icon-clean`}
+            style={{
+              animationDelay: `${item.delay}s`,
+              ...getParallaxStyle(30 + idx * 5),
+            }}
           >
-            <div className="icon-3d-container">
-              <item.icon className="w-full h-full" />
+            <div className="icon-card-clean">
+              <item.icon size={24} style={{ color: item.color }} />
             </div>
           </div>
         ))}
 
-        {/* Particle Effects */}
-        <div className="particles-container">
-          {[...Array(20)].map((_, i) => (
-            <div
-              key={i}
-              className="particle"
-              style={{
-                left: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 5}s`,
-                animationDuration: `${3 + Math.random() * 4}s`,
-              }}
-            />
-          ))}
-        </div>
-
-        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28 lg:py-32 w-full z-10">
+        {/* Main Content */}
+        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 w-full">
           <div className="text-center">
-            {/* 3D App Logo */}
-            <div className="animate-fade-in mb-10">
-              <div className="logo-3d-container inline-block">
-                <div className="logo-3d-wrapper">
-                  <div className="logo-3d inline-flex items-center justify-center w-28 h-28 sm:w-32 sm:h-32 rounded-3xl bg-background shadow-2xl p-3">
-                    <img
-                      src={synkplanLogo}
-                      alt="SynkPlan Logo"
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
-                  {/* Logo Glow */}
-                  <div className="logo-glow" />
-                </div>
+            {/* Interactive Logo */}
+            <div
+              className="inline-block mb-8"
+              style={getParallaxStyle(10)}
+            >
+              <div className="logo-card-clean">
+                <img
+                  src={synkplanLogo}
+                  alt="SynkPlan Logo"
+                  className="w-24 h-24 sm:w-28 sm:h-28 object-contain"
+                />
               </div>
             </div>
 
-            {/* Animated App Name */}
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold mb-6 animate-fade-in-delay-1">
-              <span className="text-gradient-animated">SynkPlan</span>
+            {/* Title */}
+            <h1
+              className="text-5xl sm:text-6xl lg:text-7xl font-extrabold mb-4"
+              style={getParallaxStyle(5)}
+            >
+              <span className="text-gradient">SynkPlan</span>
             </h1>
 
-            {/* Tagline with Typewriter effect */}
-            <p className="text-xl sm:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed animate-fade-in-delay-2 mb-4">
-              Your Ultimate Productivity & Study Companion
+            {/* Tagline */}
+            <p
+              className="text-xl sm:text-2xl font-medium text-violet-600 mb-4"
+              style={getParallaxStyle(8)}
+            >
+              The Future of Productivity
             </p>
 
             {/* Description */}
-            <p className="text-base sm:text-lg text-muted-foreground/80 max-w-2xl mx-auto leading-relaxed animate-fade-in-delay-2">
-              Manage tasks, focus sessions, document conversion, and track your academic progress — all in one powerful app.
+            <p
+              className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed"
+              style={getParallaxStyle(6)}
+            >
+              A next-generation study companion powered by AI. Manage tasks, track progress,
+              focus better, and achieve your academic goals.
             </p>
 
             {/* CTA Buttons */}
-            <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-delay-3">
-              <Link
-                to="/features"
-                className="cta-button-primary group"
-              >
-                <Sparkles className="w-5 h-5 group-hover:rotate-12 transition-transform" />
-                Explore Features
+            <div
+              className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10"
+              style={getParallaxStyle(4)}
+            >
+              <Link to="/features" className="btn-primary-clean group">
+                <Sparkles className="w-5 h-5" />
+                <span>Explore Features</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
 
-              <Link
-                to="/experience"
-                className="cta-button-secondary"
-              >
+              <Link to="/experience" className="btn-secondary-clean">
                 View App Preview
               </Link>
             </div>
 
             {/* Status Badge */}
-            <div className="mt-10 animate-fade-in-delay-3">
-              <div className="status-badge">
-                <span className="status-dot" />
-                Coming soon to Android & iOS
-              </div>
+            <div className="status-badge-clean mb-10" style={getParallaxStyle(3)}>
+              <span className="status-dot-clean" />
+              <span>Coming soon to Android & iOS</span>
             </div>
 
             {/* Feature Pills */}
-            <div className="mt-12 flex flex-wrap items-center justify-center gap-3 animate-fade-in-delay-3">
-              {["Task Management", "Focus Timer", "Analytics", "AI Agents"].map((feature, idx) => (
+            <div className="flex flex-wrap items-center justify-center gap-3" style={getParallaxStyle(2)}>
+              {["AI Powered", "Real-time Sync", "Smart Analytics", "Voice Agent"].map((feature, idx) => (
                 <span
                   key={feature}
-                  className="feature-pill"
-                  style={{ animationDelay: `${0.3 + idx * 0.1}s` }}
+                  className="feature-pill-clean"
+                  style={{ animationDelay: `${idx * 0.1}s` }}
                 >
                   {feature}
                 </span>
@@ -132,8 +155,8 @@ const Index = () => {
           </div>
         </div>
 
-        {/* Bottom Gradient Fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
+        {/* Bottom Wave */}
+        <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-background to-transparent" />
       </section>
     </Layout>
   );
