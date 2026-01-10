@@ -1,4 +1,5 @@
 import Layout from "@/components/layout/Layout";
+import UpcomingFeatures from "@/components/UpcomingFeatures";
 import { Briefcase, FileText, Timer, Clock, BarChart3, CheckSquare } from "lucide-react";
 import synkplanLogo from "@/assets/synkplan-logo.png";
 
@@ -42,19 +43,19 @@ const Index = () => {
       <section className="hero-section relative overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 bg-grid-pattern opacity-50" />
-        
+
         {/* Decorative Elements */}
         <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl" />
         <div className="absolute bottom-10 right-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-        
+
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28 lg:py-32">
           <div className="text-center">
             {/* App Logo */}
             <div className="animate-fade-in animate-float">
               <div className="inline-flex items-center justify-center w-24 h-24 sm:w-28 sm:h-28 rounded-3xl bg-background shadow-2xl mb-8 p-2 card-glow">
-                <img 
-                  src={synkplanLogo} 
-                  alt="SynkPlan Logo" 
+                <img
+                  src={synkplanLogo}
+                  alt="SynkPlan Logo"
                   className="w-full h-full object-contain"
                 />
               </div>
@@ -92,7 +93,7 @@ const Index = () => {
               Everything you need to boost your productivity and ace your studies
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {features.map((feature, index) => (
               <div
@@ -114,6 +115,9 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* Upcoming AI Features Section */}
+      <UpcomingFeatures />
     </Layout>
   );
 };
