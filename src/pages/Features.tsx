@@ -1,5 +1,5 @@
 import Layout from "@/components/layout/Layout";
-import { Briefcase, FileText, Timer, Clock, BarChart3, CheckSquare } from "lucide-react";
+import { Briefcase, FileText, Timer, Clock, BarChart3, CheckSquare, Shield, Trophy, Ban } from "lucide-react";
 
 const features = [
     {
@@ -24,13 +24,23 @@ const features = [
     },
     {
         icon: BarChart3,
-        title: "Subject Analytics",
-        description: "Track daily progress and hours spent on each subject",
+        title: "Subject Analytics & Graphs",
+        description: "Visual graphs and insights to track daily progress and hours spent on each subject",
     },
     {
         icon: CheckSquare,
         title: "Task Management",
         description: "Organize todos and events to stay on schedule",
+    },
+    {
+        icon: Shield,
+        title: "Focus Mode Protection",
+        description: "Block distracting apps during study sessions to stay focused and improve productivity",
+    },
+    {
+        icon: Trophy,
+        title: "Top 10 Leaderboard",
+        description: "Compete with other learners, track your rank, and stay motivated with healthy competition",
     },
 ];
 
