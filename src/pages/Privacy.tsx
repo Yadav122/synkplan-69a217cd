@@ -1,5 +1,5 @@
 import Layout from "@/components/layout/Layout";
-import { Shield, Mail, Lock, Eye, Database, Bell, FileText, UserCheck, Users, RefreshCw, ChevronRight } from "lucide-react";
+import { Shield, Mail, Lock, Eye, Database, Bell, FileText, UserCheck, Users, RefreshCw, ChevronRight, BarChart3, Trophy } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
@@ -10,6 +10,9 @@ const sections = [
   { id: "intro", title: "Introduction", icon: Shield },
   { id: "collect", title: "Information We Collect", icon: Database },
   { id: "permissions", title: "Permissions We Use", icon: Lock },
+  { id: "focus-mode", title: "Focus Mode & App Blocking", icon: Lock },
+  { id: "analytics", title: "Analytics & Graphs", icon: BarChart3 },
+  { id: "leaderboard", title: "Leaderboard Feature", icon: Trophy },
   { id: "no-collect", title: "What We Don't Collect", icon: Eye },
   { id: "usage", title: "How We Use Data", icon: FileText },
   { id: "sharing", title: "Data Sharing", icon: Users },
@@ -292,6 +295,248 @@ const Privacy = () => {
               </div>
             </section>
 
+            {/* Section - Focus Mode & App Blocking */}
+            <section id="focus-mode" className="mb-10 scroll-mt-24">
+              <div className="modern-card group">
+                <div className="section-header">
+                  <div className="section-icon-wrapper bg-gradient-to-br from-purple-500 to-violet-600">
+                    <Lock className="w-5 h-5 text-white" />
+                  </div>
+                  <div>
+                    <span className="section-label">Focus Mode Feature</span>
+                    <h2 className="section-title-modern">Focus Mode & App Blocking (App Restrictions)</h2>
+                  </div>
+                </div>
+
+                <div className="prose-content mt-6">
+                  <div className="p-4 rounded-xl bg-purple-500/10 border border-purple-500/20 mb-6">
+                    <p className="font-semibold text-foreground flex items-center gap-2">
+                      <Shield className="w-5 h-5 text-purple-600" />
+                      This feature helps reduce distractions during study sessions
+                    </p>
+                  </div>
+
+                  <div className="subsection-card">
+                    <h3 className="subsection-title">
+                      <span className="subsection-letter">a</span>
+                      What is Focus Mode / App Blocking?
+                    </h3>
+                    <p>
+                      SynkPlan includes an optional <strong>Focus Mode Protection</strong> feature that allows users to temporarily block access to selected distracting apps during study or focus sessions. This feature is designed to help students and users stay focused and avoid distractions from social media, games, and other applications.
+                    </p>
+                  </div>
+
+                  <div className="subsection-card">
+                    <h3 className="subsection-title">
+                      <span className="subsection-letter">b</span>
+                      Permissions Required
+                    </h3>
+                    <p>To enable this feature, SynkPlan may request:</p>
+                    <ul className="modern-list">
+                      <li><strong>Usage Access Permission (PACKAGE_USAGE_STATS)</strong> – To detect which apps are currently running so that blocked apps can be identified during focus sessions</li>
+                      <li><strong>Display over other apps (SYSTEM_ALERT_WINDOW)</strong> – To show a blocking overlay when a user tries to open a blocked app</li>
+                      <li><strong>Query All Packages (QUERY_ALL_PACKAGES)</strong> – To display the list of installed apps so users can select which apps to block</li>
+                    </ul>
+                    <p className="text-sm text-muted-foreground mt-3 italic">
+                      These permissions are only requested when the user chooses to enable the Focus Mode feature and are never used in the background without user initiation.
+                    </p>
+                  </div>
+
+                  <div className="subsection-card">
+                    <h3 className="subsection-title">
+                      <span className="subsection-letter">c</span>
+                      Data Collection & Privacy
+                    </h3>
+                    <div className="p-4 rounded-xl bg-green-500/10 border border-green-500/20 mb-4">
+                      <p className="font-semibold text-foreground flex items-center gap-2">
+                        <Shield className="w-5 h-5 text-green-600" />
+                        No App Usage Data is Collected, Stored, or Shared
+                      </p>
+                    </div>
+                    <p>Important privacy guarantees for this feature:</p>
+                    <ul className="modern-list">
+                      <li>We do <strong>NOT</strong> collect any data about your app usage patterns</li>
+                      <li>We do <strong>NOT</strong> track which apps you use or how often</li>
+                      <li>We do <strong>NOT</strong> store any list of your installed apps on our servers</li>
+                      <li>We do <strong>NOT</strong> share any app-related information with third parties</li>
+                      <li>All app blocking functionality works <strong>entirely on your device</strong></li>
+                      <li>The list of apps you choose to block is stored <strong>locally on your device only</strong></li>
+                    </ul>
+                  </div>
+
+                  <div className="subsection-card">
+                    <h3 className="subsection-title">
+                      <span className="subsection-letter">d</span>
+                      User Control
+                    </h3>
+                    <ul className="modern-list">
+                      <li>Focus Mode is <strong>completely optional</strong> – you can use SynkPlan without enabling this feature</li>
+                      <li>You have <strong>full control</strong> over which apps to block</li>
+                      <li>You can <strong>enable or disable</strong> app blocking at any time from the app settings</li>
+                      <li>You can <strong>revoke permissions</strong> from your device settings at any time</li>
+                    </ul>
+                  </div>
+
+                  <div className="subsection-card">
+                    <h3 className="subsection-title">
+                      <span className="subsection-letter">e</span>
+                      Purpose & Justification
+                    </h3>
+                    <p>
+                      The sole purpose of this feature is to help users stay focused during study or work sessions by limiting access to distracting applications. This is a core functionality of SynkPlan as a productivity and study-focused application. The permissions are used exclusively for this purpose and not for any advertising, analytics, or data collection.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* Section - Analytics & Graphs */}
+            <section id="analytics" className="mb-10 scroll-mt-24">
+              <div className="modern-card group">
+                <div className="section-header">
+                  <div className="section-icon-wrapper bg-gradient-to-br from-blue-500 to-cyan-600">
+                    <BarChart3 className="w-5 h-5 text-white" />
+                  </div>
+                  <div>
+                    <span className="section-label">Analytics Feature</span>
+                    <h2 className="section-title-modern">Subject-wise Analytics & Graphs</h2>
+                  </div>
+                </div>
+
+                <div className="prose-content mt-6">
+                  <div className="p-4 rounded-xl bg-blue-500/10 border border-blue-500/20 mb-6">
+                    <p className="font-semibold text-foreground flex items-center gap-2">
+                      <BarChart3 className="w-5 h-5 text-blue-600" />
+                      Track your study progress with visual insights
+                    </p>
+                  </div>
+
+                  <div className="subsection-card">
+                    <h3 className="subsection-title">
+                      <span className="subsection-letter">a</span>
+                      What is Subject-wise Analytics?
+                    </h3>
+                    <p>
+                      SynkPlan provides <strong>visual graphs and analytics</strong> to help you understand your study patterns. You can view subject-wise breakdown of your study time, productivity trends, and progress over time.
+                    </p>
+                  </div>
+
+                  <div className="subsection-card">
+                    <h3 className="subsection-title">
+                      <span className="subsection-letter">b</span>
+                      Data Used for Analytics
+                    </h3>
+                    <p>The following data is used to generate your analytics:</p>
+                    <ul className="modern-list">
+                      <li>Focus session duration and completion status</li>
+                      <li>Subject names you create and assign to sessions</li>
+                      <li>Task completion rates</li>
+                      <li>Study streaks and consistency patterns</li>
+                    </ul>
+                    <p className="text-sm text-muted-foreground mt-3 italic">
+                      This data is created by you and used solely to provide personalized insights within the app.
+                    </p>
+                  </div>
+
+                  <div className="subsection-card">
+                    <h3 className="subsection-title">
+                      <span className="subsection-letter">c</span>
+                      Privacy Guarantees
+                    </h3>
+                    <ul className="modern-list">
+                      <li>Analytics are generated for <strong>your personal use only</strong></li>
+                      <li>Your study data is <strong>not shared</strong> with other users (unless you opt into Leaderboard)</li>
+                      <li>We do <strong>not sell</strong> your analytics data to third parties</li>
+                      <li>You can <strong>delete</strong> your data at any time</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* Section - Leaderboard Feature */}
+            <section id="leaderboard" className="mb-10 scroll-mt-24">
+              <div className="modern-card group">
+                <div className="section-header">
+                  <div className="section-icon-wrapper bg-gradient-to-br from-yellow-500 to-orange-600">
+                    <Trophy className="w-5 h-5 text-white" />
+                  </div>
+                  <div>
+                    <span className="section-label">Leaderboard Feature</span>
+                    <h2 className="section-title-modern">Top 10 Leaderboard</h2>
+                  </div>
+                </div>
+
+                <div className="prose-content mt-6">
+                  <div className="p-4 rounded-xl bg-yellow-500/10 border border-yellow-500/20 mb-6">
+                    <p className="font-semibold text-foreground flex items-center gap-2">
+                      <Trophy className="w-5 h-5 text-yellow-600" />
+                      Compete with other learners and stay motivated!
+                    </p>
+                  </div>
+
+                  <div className="subsection-card">
+                    <h3 className="subsection-title">
+                      <span className="subsection-letter">a</span>
+                      What is the Leaderboard?
+                    </h3>
+                    <p>
+                      SynkPlan includes an optional <strong>Top 10 Leaderboard</strong> feature that allows users to compare their study progress with others. This feature is designed to motivate users and create a healthy competitive environment.
+                    </p>
+                  </div>
+
+                  <div className="subsection-card">
+                    <h3 className="subsection-title">
+                      <span className="subsection-letter">b</span>
+                      Data Displayed on Leaderboard
+                    </h3>
+                    <p>If you choose to participate, the following may be visible to other users:</p>
+                    <ul className="modern-list">
+                      <li>Your display name or username</li>
+                      <li>Your profile photo (if set)</li>
+                      <li>Your total study time or points</li>
+                      <li>Your rank position</li>
+                    </ul>
+                    <p className="text-sm text-muted-foreground mt-3 italic">
+                      Only aggregated scores are shown. Your detailed study data, subjects, or personal information is never shared.
+                    </p>
+                  </div>
+
+                  <div className="subsection-card">
+                    <h3 className="subsection-title">
+                      <span className="subsection-letter">c</span>
+                      User Control & Consent
+                    </h3>
+                    <div className="p-4 rounded-xl bg-green-500/10 border border-green-500/20 mb-4">
+                      <p className="font-semibold text-foreground flex items-center gap-2">
+                        <Shield className="w-5 h-5 text-green-600" />
+                        Leaderboard participation is completely OPTIONAL
+                      </p>
+                    </div>
+                    <ul className="modern-list">
+                      <li>You must <strong>opt-in</strong> to appear on the leaderboard</li>
+                      <li>You can <strong>opt-out</strong> at any time and your data will be removed from the leaderboard</li>
+                      <li>You can use the app fully without joining the leaderboard</li>
+                      <li>You can choose what information to display (e.g., anonymous username)</li>
+                    </ul>
+                  </div>
+
+                  <div className="subsection-card">
+                    <h3 className="subsection-title">
+                      <span className="subsection-letter">d</span>
+                      Privacy Guarantees
+                    </h3>
+                    <ul className="modern-list">
+                      <li>Your email address is <strong>never</strong> displayed publicly</li>
+                      <li>Your detailed study sessions and subjects are <strong>private</strong></li>
+                      <li>We <strong>do not</strong> share leaderboard data with advertisers</li>
+                      <li>Leaderboard data is used <strong>only</strong> for ranking purposes within the app</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </section>
+
             {/* Section 3 - What We Don't Collect */}
             <section id="no-collect" className="mb-10 scroll-mt-24">
               <div className="modern-card group">
@@ -315,7 +560,9 @@ const Privacy = () => {
                       "Audio recordings",
                       "Payment or financial information",
                       "Personal messages",
-                      "Background photos or videos"
+                      "Background photos or videos",
+                      "App usage patterns or statistics",
+                      "List of installed apps (not stored on servers)"
                     ].map((item, index) => (
                       <div key={index} className="flex items-center gap-3 px-4 py-3 rounded-xl bg-red-500/5 border border-red-500/10">
                         <div className="w-2 h-2 rounded-full bg-red-500" />
