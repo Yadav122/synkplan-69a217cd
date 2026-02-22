@@ -132,9 +132,10 @@ const Index = () => {
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
 
-              <Link to="/upcoming-ai" className="btn-secondary-clean group text-indigo-600 border-indigo-200 hover:bg-indigo-50">
+              <Link to="/upcoming-ai" className="btn-ai-special group">
                 <Brain className="w-5 h-5" />
                 <span>AI Features</span>
+                <Sparkles className="w-4 h-4 text-cyan-200 animate-pulse" />
               </Link>
 
               <Link to="/experience" className="btn-secondary-clean">
@@ -148,11 +149,11 @@ const Index = () => {
                 href="https://play.google.com/store/apps/details?id=com.khushbu.synkplan"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="status-badge-clean hover:scale-105 transition-all hover:shadow-lg bg-white/80 backdrop-blur-sm group border-green-100"
+                className="status-badge-live group"
               >
-                <span className="status-dot-clean bg-green-500 animate-pulse" />
-                <span className="text-slate-900 group-hover:text-green-600">Live in Play Store</span>
-                <Download className="w-4 h-4 ml-1 text-green-500" />
+                <span className="status-dot-clean" />
+                <span>Live in Play Store</span>
+                <Download className="w-5 h-5 ml-1 group-hover:translate-y-0.5 transition-transform" />
               </a>
             </div>
 
