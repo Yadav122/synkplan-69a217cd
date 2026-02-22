@@ -117,8 +117,9 @@ const Index = () => {
               className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed"
               style={getParallaxStyle(6)}
             >
-              A next-generation study companion powered by AI. Manage tasks, track progress,
-              focus better, and achieve your academic goals.
+              An AI-first productivity ecosystem designed for the modern high-achiever.
+              Leverage autonomous agents to master skills, optimize your workflow, and
+              bridge the gap to your dream career with data-driven precision.
             </p>
 
             {/* CTA Buttons */}
