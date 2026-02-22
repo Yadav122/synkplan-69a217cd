@@ -44,19 +44,19 @@ const performanceData = [
 ];
 
 const subjectData = [
-    { subject: "Mathematics", A: 85, fullMark: 100 },
-    { subject: "Physics", A: 65, fullMark: 100 },
-    { subject: "Chemistry", A: 90, fullMark: 100 },
-    { subject: "English", A: 70, fullMark: 100 },
-    { subject: "Biology", A: 55, fullMark: 100 },
-    { subject: "Logic", A: 95, fullMark: 100 },
+    { subject: "Quantitative Aptitude", A: 85, fullMark: 100 },
+    { subject: "Logical Reasoning", A: 90, fullMark: 100 },
+    { subject: "Verbal Ability", A: 70, fullMark: 100 },
+    { subject: "General Awareness", A: 65, fullMark: 100 },
+    { subject: "Technical Skills", A: 80, fullMark: 100 },
+    { subject: "Data Interpretation", A: 75, fullMark: 100 },
 ];
 
 const weaknesses = [
-    { topic: "Quantum Mechanics", subject: "Physics", impact: "High", questions: 12 },
-    { topic: "Organic Synthesis", subject: "Chemistry", impact: "Medium", questions: 8 },
-    { topic: "Calculus III", subject: "Mathematics", impact: "Medium", questions: 15 },
-    { topic: "Cell Division", subject: "Biology", impact: "High", questions: 10 },
+    { topic: "Static GK (Indian History)", subject: "General Awareness", impact: "High", questions: 15 },
+    { topic: "Probability & Permutations", subject: "Quantitative Aptitude", impact: "Medium", questions: 12 },
+    { topic: "Syllogism & Deductions", subject: "Logical Reasoning", impact: "Medium", questions: 10 },
+    { topic: "System Design Basics", subject: "Technical Skills", impact: "High", questions: 8 },
 ];
 
 const TestSeriesAgent = () => {
@@ -108,16 +108,21 @@ const TestSeriesAgent = () => {
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div className="flex flex-col lg:flex-row items-center gap-12">
                             <div className="flex-1 text-center lg:text-left">
-                                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-100 border border-cyan-200 text-cyan-700 text-sm font-semibold mb-6">
-                                    <Sparkles className="w-4 h-4" />
-                                    <span>AI Powered Test Analytics</span>
+                                <div className="flex flex-wrap items-center gap-3 mb-6">
+                                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-100 border border-cyan-200 text-cyan-700 text-sm font-semibold">
+                                        <Sparkles className="w-4 h-4" />
+                                        <span>AI Powered Test Analytics</span>
+                                    </div>
+                                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 border border-amber-200 text-amber-700 text-sm font-semibold animate-pulse">
+                                        <span>Coming Soon</span>
+                                    </div>
                                 </div>
                                 <h1 className="text-4xl sm:text-6xl font-extrabold text-slate-900 mb-6 tracking-tight">
-                                    Master Your Exams with <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">Precision</span>
+                                    Land Your Dream Job with <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">AI Precision</span>
                                 </h1>
                                 <p className="text-lg text-slate-600 mb-8 max-w-2xl mx-auto lg:mx-0">
-                                    Our AI Agent analyzes every click and answer to identify your precise weak areas.
-                                    Experience targeted growth with performance tracking that actually helps you improve.
+                                    Our AI Agent analyzes your performance in mock recruitment tests to identify skill gaps.
+                                    Get placement-ready with real-time analytics and targeted improvement plans.
                                 </p>
                                 <div className="flex flex-wrap justify-center lg:justify-start gap-4">
                                     <button
@@ -318,18 +323,18 @@ const TestSeriesAgent = () => {
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                 <div className="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-sm">
-                                    <h4 className="text-lg font-bold text-slate-900 mb-6 font-primary">Performance Feedback</h4>
+                                    <h4 className="text-lg font-bold text-slate-900 mb-6 font-primary">Placement Feedback</h4>
                                     <div className="space-y-6">
                                         <div className="p-4 bg-blue-50 rounded-2xl border border-blue-100">
                                             <p className="text-sm text-blue-800 font-medium mb-1">Observation</p>
                                             <p className="text-blue-900 text-base font-medium">
-                                                "Your accuracy drops on multi-step physics problems after the 45-minute mark, suggesting focus fatigue."
+                                                "Your speed in Quantitative sections decreases in the final 10 minutes, indicating a need for better time management."
                                             </p>
                                         </div>
                                         <div className="p-4 bg-green-50 rounded-2xl border border-green-100">
                                             <p className="text-sm text-green-800 font-medium mb-1">Recommendation</p>
                                             <p className="text-green-900 text-base font-medium">
-                                                "Practice pomodoro cycles with physics problems to build endurance for long-duration calculation intensive tasks."
+                                                "Practice 20-minute rapid-fire aptitude drills to build speed and accuracy under extreme time pressure."
                                             </p>
                                         </div>
                                     </div>
@@ -338,13 +343,13 @@ const TestSeriesAgent = () => {
                                 <div className="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-sm">
                                     <h4 className="text-lg font-bold text-slate-900 mb-6 flex items-center gap-2">
                                         <Zap className="text-amber-500 w-5 h-5" />
-                                        Recommended Sequence
+                                        Recommended Path
                                     </h4>
                                     <div className="space-y-4">
                                         {[
-                                            { step: 1, text: "Revise Quantum Mechanics core concepts", status: "next" },
-                                            { step: 2, text: "Take 15-question targeted drill (Advanced Physics)", status: "locked" },
-                                            { step: 3, text: "Review Biology Cell Biology summary", status: "locked" },
+                                            { step: 1, text: "Strengthen Static GK (General Awareness)", status: "next" },
+                                            { step: 2, text: "Attempt 20-question Coding Assessment", status: "locked" },
+                                            { step: 3, text: "Review SQL Joins and Query Optimization", status: "locked" },
                                         ].map((s) => (
                                             <div key={s.step} className="flex items-center gap-4">
                                                 <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${s.status === 'next' ? 'bg-blue-600 text-white' : 'bg-slate-100 text-slate-400'}`}>
@@ -374,11 +379,11 @@ const TestSeriesAgent = () => {
 
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                                 {[
-                                    { title: "Calculus Mastery", questions: 20, time: "45m", level: "Expert", color: "blue" },
-                                    { title: "Organic Chemistry Drills", questions: 15, time: "30m", level: "Intermediate", color: "purple" },
-                                    { title: "Modern Physics Focus", questions: 25, time: "60m", level: "Advanced", color: "cyan" },
-                                    { title: "English Grammar Logic", questions: 10, time: "20m", level: "Beginner", color: "green" },
-                                    { title: "Cell Biology Recap", questions: 15, time: "30m", level: "Intermediate", color: "red" },
+                                    { title: "Quantitative Mastery", questions: 25, time: "30m", level: "Expert", color: "blue" },
+                                    { title: "Verbal Ability Drills", questions: 20, time: "20m", level: "Intermediate", color: "purple" },
+                                    { title: "Data Interpretation Pro", questions: 30, time: "45m", level: "Advanced", color: "cyan" },
+                                    { title: "Logical Reasoning Set", questions: 15, time: "25m", level: "Beginner", color: "green" },
+                                    { title: "Static Awareness Recap", questions: 50, time: "15m", level: "Intermediate", color: "red" },
                                 ].map((session, i) => (
                                     <div key={i} className="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm hover:shadow-lg transition-all group cursor-pointer">
                                         <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform ${session.color === 'blue' ? 'bg-blue-50' :
@@ -425,10 +430,10 @@ const TestSeriesAgent = () => {
                                     </thead>
                                     <tbody className="divide-y divide-slate-100">
                                         {[
-                                            { name: "JEE Full Mock #12", date: "Oct 24, 2023", score: "215/300", percentile: "98.2", status: "Completed" },
-                                            { name: "NEET Biology Sectional", date: "Oct 20, 2023", score: "340/360", percentile: "99.1", status: "Completed" },
-                                            { name: "Math Calculus Drill", date: "Oct 18, 2023", score: "85/100", percentile: "94.5", status: "Completed" },
-                                            { name: "Physics Mechanics #3", date: "Oct 15, 2023", score: "72/100", percentile: "88.9", status: "Completed" },
+                                            { name: "SSC CGL Tier 1 Mock", date: "Oct 24, 2023", score: "165/200", percentile: "98.2", status: "Completed" },
+                                            { name: "AMCAT Aptitude Test", date: "Oct 20, 2023", score: "890/900", percentile: "99.1", status: "Completed" },
+                                            { name: "UPSC CSAT Practice", date: "Oct 18, 2023", score: "145/200", percentile: "94.5", status: "Completed" },
+                                            { name: "TCS NQT Assessment", date: "Oct 15, 2023", score: "72/100", percentile: "88.9", status: "Completed" },
                                         ].map((test, i) => (
                                             <tr key={i} className="hover:bg-slate-50 transition-colors">
                                                 <td className="px-6 py-4 font-bold text-slate-900">{test.name}</td>
@@ -458,9 +463,9 @@ const TestSeriesAgent = () => {
                 <section className="py-24 bg-gradient-to-br from-blue-600 to-cyan-500 text-white text-center relative overflow-hidden">
                     <div className="absolute top-0 left-0 w-full h-full opacity-10" style={{ backgroundImage: 'radial-gradient(circle at center, white 1px, transparent 1px)', backgroundSize: '20px 20px' }} />
                     <div className="max-w-4xl mx-auto px-4 relative z-10">
-                        <h2 className="text-3xl sm:text-5xl font-extrabold mb-8">Ready to boost your exam score?</h2>
+                        <h2 className="text-3xl sm:text-5xl font-extrabold mb-8">Ready to get your dream placement?</h2>
                         <p className="text-xl text-blue-100 mb-12 max-w-2xl mx-auto">
-                            Get the SynkPlan app today and let our AI Agent guide you to success. Available for all major entrance exams.
+                            Get the SynkPlan app today and let our AI Agent guide you to career success. Available for all major job assessments.
                         </p>
                         <div className="flex flex-wrap justify-center gap-6">
                             <a

@@ -126,9 +126,9 @@ const Index = () => {
               className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10"
               style={getParallaxStyle(4)}
             >
-              <Link to="/features" className="btn-primary-clean group">
+              <Link to="/test-series" className="btn-primary-clean group">
                 <Sparkles className="w-5 h-5" />
-                <span>Explore Features</span>
+                <span>Test Series Agent</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
 
