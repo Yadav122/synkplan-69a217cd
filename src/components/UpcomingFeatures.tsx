@@ -1,4 +1,5 @@
-import { Sparkles, Brain, BookOpen, ChevronRight, Zap, Map, Target, Clock, Phone, ListChecks, Focus, ShieldCheck } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Sparkles, Brain, BookOpen, ChevronRight, Zap, Map, Target, Clock, Phone, ListChecks, Focus, ShieldCheck, BarChart3 } from "lucide-react";
 import careerAgentImg from "@/assets/career-agent.png";
 import testAgentImg from "@/assets/test-agent.png";
 import voiceAgentImg from "@/assets/voice-agent.png";
@@ -27,10 +28,10 @@ const upcomingAgents = [
         description: "Get personalized test series that identify your weak areas and provide targeted practice questions with real-time performance analytics and improvement tracking.",
         image: testAgentImg,
         features: [
-            { icon: BookOpen, text: "Smart Question Bank" },
-            { icon: Target, text: "Weak Area Analysis" },
-            { icon: Clock, text: "Timed Practice" },
-            { icon: Zap, text: "Performance Tracking" },
+            { icon: Brain, text: "Weak Area Analysis" },
+            { icon: BarChart3, text: "Real-time Analytics" },
+            { icon: Target, text: "Targeted Practice" },
+            { icon: Zap, text: "Selection Tracking" },
         ],
         gradient: "from-blue-600 via-cyan-600 to-teal-600",
         glowColor: "cyan",
@@ -147,15 +148,25 @@ const UpcomingFeatures = () => {
                                 </div>
 
                                 {/* CTA Button */}
-                                <a
-                                    href="https://play.google.com/store/apps/details?id=com.khushbu.synkplan"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className={`agent-cta group bg-gradient-to-r ${agent.gradient} flex items-center justify-center gap-2`}
-                                >
-                                    <span>{agent.status === "Live in Play Store" ? "Download Now" : "Notify Me"}</span>
-                                    <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                                </a>
+                                {agent.id === "test-agent" ? (
+                                    <Link
+                                        to="/test-series"
+                                        className={`agent-cta group bg-gradient-to-r ${agent.gradient} flex items-center justify-center gap-2`}
+                                    >
+                                        <span>Coming Soon...</span>
+                                        <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                                    </Link>
+                                ) : (
+                                    <a
+                                        href="https://play.google.com/store/apps/details?id=com.khushbu.synkplan"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className={`agent-cta group bg-gradient-to-r ${agent.gradient} flex items-center justify-center gap-2`}
+                                    >
+                                        <span>{agent.status === "Live in Play Store" ? "Download Now" : "Notify Me"}</span>
+                                        <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                                    </a>
+                                )}
                             </div>
                         </div>
                     ))}

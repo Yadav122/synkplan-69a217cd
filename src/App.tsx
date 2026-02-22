@@ -12,6 +12,8 @@ import Privacy from "./pages/Privacy";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
 
+import TestSeriesAgent from "./pages/TestSeriesAgent";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -25,6 +27,7 @@ const App = () => (
           <Route path="/features" element={<Features />} />
           <Route path="/experience" element={<Experience />} />
           <Route path="/upcoming-ai" element={<UpcomingAI />} />
+          <Route path="/test-series" element={<TestSeriesAgent />} />
           <Route path="/about" element={<About />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/privacy" element={<Privacy />} />
