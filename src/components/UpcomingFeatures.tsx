@@ -18,7 +18,7 @@ const upcomingAgents = [
         ],
         gradient: "from-violet-600 via-purple-600 to-indigo-600",
         glowColor: "violet",
-        status: "Coming Soon",
+        status: "Live in Play Store",
     },
     {
         id: "test-agent",
@@ -87,7 +87,7 @@ const UpcomingFeatures = () => {
                 <div className="text-center mb-16 sm:mb-20">
                     <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6 animate-fade-in">
                         <Sparkles className="w-4 h-4 text-primary animate-pulse" />
-                        <span className="text-sm font-semibold text-primary">Upcoming AI Features</span>
+                        <span className="text-sm font-semibold text-primary">Premium AI Features</span>
                         <Sparkles className="w-4 h-4 text-primary animate-pulse" />
                     </div>
 
@@ -96,7 +96,7 @@ const UpcomingFeatures = () => {
                     </h2>
 
                     <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto animate-fade-in-delay-2">
-                        Revolutionary AI-powered features coming soon to supercharge your learning journey
+                        Experience revolutionary AI-powered features designed to supercharge your learning journey.
                     </p>
                 </div>
 
@@ -147,10 +147,15 @@ const UpcomingFeatures = () => {
                                 </div>
 
                                 {/* CTA Button */}
-                                <button className={`agent-cta group bg-gradient-to-r ${agent.gradient}`}>
-                                    <span>Notify Me</span>
+                                <a
+                                    href="https://play.google.com/store/apps/details?id=com.khushbu.synkplan"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className={`agent-cta group bg-gradient-to-r ${agent.gradient} flex items-center justify-center gap-2`}
+                                >
+                                    <span>{agent.status === "Live in Play Store" ? "Download Now" : "Notify Me"}</span>
                                     <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                                </button>
+                                </a>
                             </div>
                         </div>
                     ))}

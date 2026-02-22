@@ -1,10 +1,9 @@
 import { useState, useEffect, useRef } from "react";
 import Layout from "@/components/layout/Layout";
 import { Link } from "react-router-dom";
-import { ArrowRight, Sparkles, Calendar, CheckSquare, Timer, BarChart3, Briefcase, FileText } from "lucide-react";
+import { ArrowRight, Sparkles, Calendar, CheckSquare, Timer, BarChart3, Briefcase, FileText, Brain, Download } from "lucide-react";
 import synkplanLogo from "@/assets/synkplan-logo.png";
-import screenshotSubjects from "@/assets/image.png";
-import screenshotCareerAgent from "@/assets/image copy.png";
+
 
 const floatingIcons = [
   { icon: Calendar, position: "top-[18%] left-[12%]", color: "#8B5CF6", delay: 0 },
@@ -133,15 +132,28 @@ const Index = () => {
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
 
+              <Link to="/upcoming-ai" className="btn-secondary-clean group text-indigo-600 border-indigo-200 hover:bg-indigo-50">
+                <Brain className="w-5 h-5" />
+                <span>AI Features</span>
+              </Link>
+
               <Link to="/experience" className="btn-secondary-clean">
                 View App Preview
               </Link>
             </div>
 
             {/* Status Badge */}
-            <div className="status-badge-clean mb-10" style={getParallaxStyle(3)}>
-              <span className="status-dot-clean" />
-              <span>Coming soon to Android & iOS</span>
+            <div className="flex flex-col items-center mb-10" style={getParallaxStyle(3)}>
+              <a
+                href="https://play.google.com/store/apps/details?id=com.khushbu.synkplan"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="status-badge-clean hover:scale-105 transition-all hover:shadow-lg bg-white/80 backdrop-blur-sm group border-green-100"
+              >
+                <span className="status-dot-clean bg-green-500 animate-pulse" />
+                <span className="text-slate-900 group-hover:text-green-600">Live in Play Store</span>
+                <Download className="w-4 h-4 ml-1 text-green-500" />
+              </a>
             </div>
 
             {/* Feature Pills */}
@@ -158,65 +170,7 @@ const Index = () => {
             </div>
           </div>
         </div>
-        {/* Key Modules Section */}
-        <section className="py-24 bg-white relative overflow-hidden">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl sm:text-5xl font-extrabold mb-4 tracking-tight">
-                Powerful <span className="text-gradient">App Modules</span>
-              </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Discover the tools designed to transform your academic journey and career path.
-              </p>
-            </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-              {/* Module 1 */}
-              <div className="relative group">
-                <div className="absolute -inset-4 bg-gradient-to-r from-violet-100 to-indigo-100 rounded-[2.5rem] opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl" />
-                <div className="relative bg-white p-8 rounded-[2rem] border border-slate-100 shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500">
-                  <div className="mb-6 rounded-2xl overflow-hidden border border-slate-100 shadow-inner bg-slate-50">
-                    <img
-                      src={screenshotSubjects}
-                      alt="Subject Tracking"
-                      className="w-full h-auto object-cover transform group-hover:scale-[1.02] transition-transform duration-700"
-                    />
-                  </div>
-                  <h3 className="text-2xl font-bold mb-3 text-slate-900">Subject Tracking</h3>
-                  <p className="text-slate-600 mb-6">
-                    Monitor your learning progress across all subjects with beautiful progress bars and daily targets.
-                  </p>
-                  <div className="flex items-center gap-2 text-primary font-bold">
-                    <span>Explore Subjects</span>
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </div>
-                </div>
-              </div>
-
-              {/* Module 2 */}
-              <div className="relative group">
-                <div className="absolute -inset-4 bg-gradient-to-r from-cyan-100 to-blue-100 rounded-[2.5rem] opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl" />
-                <div className="relative bg-white p-8 rounded-[2rem] border border-slate-100 shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-cyan-500/10 transition-all duration-500">
-                  <div className="mb-6 rounded-2xl overflow-hidden border border-slate-100 shadow-inner bg-slate-50">
-                    <img
-                      src={screenshotCareerAgent}
-                      alt="AI Career Agent"
-                      className="w-full h-auto object-cover transform group-hover:scale-[1.02] transition-transform duration-700"
-                    />
-                  </div>
-                  <h3 className="text-2xl font-bold mb-3 text-slate-900">AI Career Agent</h3>
-                  <p className="text-slate-600 mb-6">
-                    Get personalized guidance from your AI mentor to navigate your professional career path.
-                  </p>
-                  <div className="flex items-center gap-2 text-cyan-600 font-bold">
-                    <span>Talk to Sarthi</span>
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
 
         {/* Bottom Wave */}
         <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-background to-transparent" />
