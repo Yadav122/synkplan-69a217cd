@@ -2,11 +2,13 @@ import { useState } from "react";
 import { Smartphone, ChevronLeft, ChevronRight } from "lucide-react";
 
 // Import app screenshots
-import screenshotHome from "@/assets/app-screenshot-home.jpg";
+import screenshotHome from "@/assets/app-screenshot-home.png";
 import screenshotTasks from "@/assets/app-screenshot-tasks.jpg";
 import screenshotEvents from "@/assets/app-screenshot-events.jpg";
 import screenshotAnalytics from "@/assets/app-screenshot-analytics.jpg";
 import screenshotLogin from "@/assets/app-screenshot-login.jpg";
+import screenshotSubjects from "@/assets/image.png";
+import screenshotCareerAgent from "@/assets/image copy.png";
 
 const appScreenshots = [
     {
@@ -14,6 +16,18 @@ const appScreenshots = [
         title: "Home Dashboard",
         description: "Get a quick overview of your day with study progress, calendar, and quick actions",
         image: screenshotHome,
+    },
+    {
+        id: "subjects",
+        title: "Subject Tracking",
+        description: "Track your progress across different subjects with daily targets and visual statistics",
+        image: screenshotSubjects,
+    },
+    {
+        id: "career-agent",
+        title: "AI Career Agent",
+        description: "Get personalized career guidance and skill analysis from your AI mentor",
+        image: screenshotCareerAgent,
     },
     {
         id: "tasks",
